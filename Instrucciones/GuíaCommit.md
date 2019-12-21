@@ -1,98 +1,181 @@
 
 <style>body{background-color:black;} strong{color:crimson;} pre{background-color:red;}</style>
 <h1 align="center">Proyecto Curso Dominando Laravel con Laravel 5.6</h1>
-<h3><b>Commit -</b> <strong>Instalando lo necesario para Windows</strong></h3>
+<h3><b>Commit -</b> <strong>Estructura de carpetas en Laravel</strong></h3>
 <hr>
 <ol>
-  <!-- Laragon -->
-  <li>
-    <p>Instalar Laragon (solo si no lo tiene instalado)</p>
+  <!-- Directorio app/ -->
+  <li>Directorio app/
+    <p>Contiene el código fuente de la aplicación y casi todas las clases que se crearán estarán dentro de
+      éste directorio</p>
     <ul>
-      <li>https://laragon.org/</li>
-      <li>Versión Laragon Full 4.0.14</li>
-    </ul>
-  </li>
-  <!-- Composer -->
-  <li>
-    <p>Instalar Composer (solo si no lo tiene instalado)</p>
-    <ul>
-      <li>https://getcomposer.org/download/</li>
-      <li>Muestra todos los comandos disponibles para composer (debe usarse desde consola después de instalarse)
-        <pre>composer</pre>
+      <li>Directorio Console/
+        <ul>
+          <li>Contiene los comandos que creemos nosotros y se registran en el archivo kernel.php</li>
+        </ul>
+      </li>
+      <li>Directorio Exceptions
+        <ul>
+          <li>Contiene el manejador de excepciones o errores de la aplicación o si la aplicación requiere de
+          excepciones personalizadas</li>
+        </ul>
+      </li>
+      <li>Directorio Http/
+        <ul>
+          <li>Contiene los controladores, middlewares y el kernel para registrarlos</li>
+        </ul>
+      </li>
+      <li>Directorio Providers/
+        <ul>
+          <li>Contiene los services providers de la aplicación y se pueden almacenar los que creemos nosotros</li>
+        </ul>
       </li>
     </ul>
   </li>
-  <!-- NodeJs -->
-  <li>
-    <p>Instalar NodeJs (solo si no lo tiene instalado)</p>
+  <!-- Directorio bootstrap/ -->
+  <li>Directorio bootstrap/
     <ul>
-      <li>https://nodejs.org/es/</li>
+      <li>Contiene el archivo app.php que es el que arranca el framework de laravel</li>
     </ul>
   </li>
-  <!-- Laravel -->
-  <li>
-    <p>Instalar Laravel de forma global (solo si no lo tiene instalado)</p>
-    <pre>composer global require laravel/installer</pre>
+  <!-- Directorio config/ -->
+  <li>Directorio config/
+    <p>Contiene toda la configuración de la aplicación</p>
     <ul>
-      <li>Crear un nuevo proyecto de laravel usando la forma global
-        <pre>laravel new nombreProyecto</pre>
+      <li>El archivo app.php
+        <ul>
+          <li>Contiene el nombre de la aplicación</li>
+          <li>Se define si la aplicación está en modo de producción o desarrollo</li>
+          <li>Que si muestre errores sensibles de la aplicación</li>
+        </ul>
       </li>
-      <li>Muestra todos los comandos disponibles para laravel de forma global
-        (debe usarse desde consola después de instalarse)
-        <pre>laravel</pre>
+      <li>El archivo database.php
+        <ul>
+          <li>Contiene la configuración de conexión a base de datos</li>
+        </ul>
       </li>
     </ul>
   </li>
-  <li>
-    <p>Para crear un proyecto sin la forma global</p>
-    <pre>composer create-project --prefer-dist laravel/laravel nombreProyecto "5.6.*"</pre>
-  </li>
-  <li>Muestra todos los comandos disponibles de laravel sea de forma global o no
-    <pre>php artisan</pre>
+  <em>Nota: Los cambios es preferible no hacerlos desde esta configuración sino desde el archivo .env</em>
+  <!-- Directorio database/ -->
+  <li>Directorio database/
     <ul>
-      <li>Para poder usar el comando php artisan se debe estar en consola y dentro de la carpeta del proyecto
-        <pre>cd c:/laragon/www/nombreProyecto</pre>
+      <li>Contiene los factories o fábricas</li>
+      <li>Contiene las migrations o migraciones</li>
+      <li>Contiene los seeds o seeder o semillas o semilleros</li>
+    </ul>
+  </li>
+  <!-- Directorio public/ -->
+  <li>Directorio public/
+    <ul>
+      <li>
+        <p>Contiene el archivo index.php</p>
+      <ul>
+        <li>Es el punto de entrada de todas las peticiones que se realicen a la aplicación</li>
+        <li>Se configuran el autocargado de las clases</li>
+      </ul>
       </li>
+      <li>Es el único directorio accesible públicamente</li>
+      <li>Contiene los directorios css, js, imágenes(svg) y el archivo .htaccess</li>
+    </ul>
+  </li>
+  <!-- Directorio resources/ -->
+  <li>Directorio resources/
+    <ul>
+      <li>Directorio views/
+        <ul>
+          <li>Contiene las vistas de la aplicación</li>
+        </ul>
+      </li>
+      <li>Directorio assets/
+        <ul>
+          <li>Contiene los archivos no compilados de css, js e imágenes</li>
+          <em>Nota: Estos archivos al ser compilados terminarán estando en la carpeta public/</em>
+        </ul>
+      </li>
+      <li>Directorio lang/
+        <ul>
+          <li>Contiene los archivos de traducción de la aplicación</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <!-- Directorio routes/ -->
+  <li>Directorio routes/
+    <ul>
+      <li>Contiene el archivo web.php
+        <ul>
+          <li>Se definen las rutas de la aplicación</li>
+        </ul>
+      </li>
+      <li>Contiene el archivo api.php
+        <em>(No contiene sesiones, cookies que si continene las rutas web.php)</em>
+      </li>
+      <li>Contiene el archivo console.php
+        <em>(Se pueden agregar comandos fácilmente)</em>
+      </li>
+      <li>Contiene el archivo channels.php
+        <em>(Se definen los canales de broadcast o transmisión)</em>
+      </li>
+    </ul>
+  </li>
+  <!-- Directorio storage/ -->
+  <li>Directorio storage/
+    <p>Puede usarse para guardar imágenes para el usuario que deben ser accesibles 
+       públicamente (crear un symbolic link o enlace simbólico hacía la carpeta public)
+       <pre>php artisan storage:link</pre>
+    </p>
+    <ul>
+      <li>Directorio app/
+        <ul>
+          <li>Contiene los archivos generados por la aplicación</li>
+        </ul>
+      </li>
+      <li>Directorio framework/
+        <ul>
+          <p>Contiene archivos generados por laravel</p>
+          <li>Directorio views/
+            <ul>
+              <li>Contiene las vistas compiladas</li>
+            </ul>
+          </li>
+          <li>Directorio sessions/
+            <ul>
+              <li>Contiene las sesiones basadas en archivos</li>
+              <li>Contiene las sesiones basadas en archivos en caché</li>
+            </ul>
+          </li>
+          <li>Directorio logs/
+            <ul>
+              <li>Contiene información detallada sobre los errores</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <!-- Directorio tests/ -->
+  <li>Directorio tests/
+    <ul>
+      <li>Contiene ejemplos de tests</li>
+    </ul>
+  </li>
+  <!-- Directorio vendor/ -->
+  <li>Directorio vendor/
+    <ul>
+      <li>Contiene todas las dependencias de composer 
+          (sólo se usa para leer sobre las librerías incluídas en laravel y no se debe manipular)
+      </li>
+    </ul>
+  </li>
+  <!-- Archivo .env -->
+  <li>Archivo .env
+    <p>Contiene la configuración principal reunida en un solo archivo</p>
+    <ul>
+      <li>Nombre de la aplicación APP_NAME=</li>
+      <li>Conexión a base de datos</li>
+      <li>Llave de la aplicación</li>
+      <li>Si está en modo desarrollo o producción</li>
     </ul>
   </li>
 </ol>
-
-<hr>
-
-<!-- Notas -->
-<h3><b>Notas:</b></h3>
-
-<!-- Tips para consola -->
-<p><b>TIPS para consola</b></p>
-<ul>
-  <li>Para saber que versión de php se tiene instalada
-    <pre>php -v</pre>
-  </li>
-  <li>Para saber que versión de laravel se tiene instalada
-    <pre>php artisan --version</pre>
-  </li>
-  <li>Para saber que versión de composer se tiene instalada
-    <pre>composer --version</pre>
-  </li>
-  <li>Para saber que versión de nodejs se tiene instalada
-    <pre>node -v</pre>
-  </li>
-  <li>Para saber que versión de npm se tiene instalada
-    <pre>npm -v</pre>
-  </li>
-  <li>Para salir de una carpeta e ir a un directorio superior
-    <pre>cd ..</pre>
-  </li>
-  <li>Para limpiar la pantalla de consola
-    <pre>cls</pre> ó <pre>ctrl+L</pre>
-  </li>
-</ul>
-
-<!-- Tips para Laragon -->
-<h3><b>Acceder desde el navegador con los virtual hosts de laragon</b></h3>
-<ul>
-  <p>Nota: la extensión de dominio dependerá de la configuración de laragon</p>
-  <li>http://cursodominandolaravel-laravel56.it/ (Si no usa el certificado SSL)</li>
-  <li>https://cursodominandolaravel-laravel56.it/ (Si se usa el certificado SSL)</li>
-</ul>
-
