@@ -5,8 +5,6 @@
          variables, hacer estructuras de control (if-else), hacer loops(ciclo for, foreach, etc.).
 --}}
 
-<?php $nombre = "Marco"; ?>  {{-- Se puede usar así pero no es recomendable --}}
-
 <!DOCTYPE html>
 <html>
   <head>

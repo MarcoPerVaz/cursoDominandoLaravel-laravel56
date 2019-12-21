@@ -8,10 +8,11 @@
    ya que la función view() asume que las vistas están en resources/views y que su extensión es blade.php
 */
 
-// Ejemplo ruta '/'
+// Ejemplo ruta '/' y paso de variables a la vista
 Route::get( '/', function() {
     
-  return view( 'home' );
+  $nombre = "Marco";
+  return view( 'home', compact( 'nombre' ) );
 
 })->name( 'home' );
 
@@ -20,3 +21,14 @@ Route::get( '/', function() {
     *Ejemplo: Si tu ruta está en resources/views/hombe.blade.php, el llamado de la vista solo debe ser: return view( 'home' );
     *Nota:Asignar el nombre a la ruta '->name()' se usa en otras situaciones
 */
+
+/**
+ * Para enviar variables a la vista
+ *  return view( 'home' )->with( 'nombre', $nombre )
+ *  return view( 'home' )->with( ['nombre'=> $nombre] ); //array
+ *  return view( 'home', ['nombre' => $nombre] ); //Array como 2do parámetro de la función view()
+ *  return view( 'home', compact( 'nombre' ) ); //Array como 2do parámetro de la función view()
+ *    la función compact() hace lo siguiente ['nombre' => $nombre] siempre y cuando tengan el mismo nombre
+ *  El uso de Route::view es para retornar vistas que no necesitan mucha lógica
+ *    ejemplo: Políticas de privacidad, térmicos y condiciones
+ */
