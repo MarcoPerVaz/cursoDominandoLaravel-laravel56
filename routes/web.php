@@ -1,29 +1,24 @@
 <?php
 /* Notas:
-    Ejemplos de rutas:
-        url: youtube.com = Route::get('/', function())
-        url: youtube.com/contacto = Route::get('contacto', function())
-    La ruta contiene 2 porámetros: la url y la función o closure y lo que se retorne dentro de
-    la función es lo que verá el usuario.
+    *Los parámetros en las rutas deben recibirse a tráves de los parámetros de 
+     la función (En este caso en específico).
 */
 
-// Ejemplo ruta '/'
-Route::get( '/', function() {
-    return "Hola desde la página de inicio";
+// Ejemplo ruta 'saludo/{parametro}'con parámetro obligatorio
+Route::get( 'saludo/{nombre}', function( $nombre ) {
+    return "saludos " . $nombre;
 });
+// En el navegador: https://cursodominandolaravel-laravel56.it/saludo/marco
 
-// Ejemplo ruta 'contacto'
-Route::get( 'contacto', function() {
-    return "Hola desde la página de contacto";
-});
 
-// Ejemplo de Métodos de petición HTTP
-Route::get();
-Route::post(); // form action='POST'
-Route::put(); 
-Route::patch(); 
-Route::delete(); 
-
-/* Notas: 
-    Los navegadores actuales no soportan put, patch y delete (más adelante en el curso se profundiza sobre el tema)
+/* Notas:
+    *Los parámetros opcionales en las rutas llevan un '?' y los parámetros opcionales dentro de la función 
+     deben ser incializados ejemplo: $nombre = "Invitado".
 */
+
+// Ejemplo de ruta 'saludo1/{parametro?}' con parámetro opcional
+Route::get( 'saludo1/{nombre?}', function( $nombre = "Invitado" ) {
+    return "saludos " . $nombre;
+});
+// En el navegador: https://cursodominandolaravel-laravel56.it/saludo1/
+// En el navegador: https://cursodominandolaravel-laravel56.it/saludo1/Marco

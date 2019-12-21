@@ -1,7 +1,7 @@
 
 <style>body{background-color:black;} strong{color:crimson;} pre{background-color:red;}</style>
 <h1 align="center">Proyecto Curso Dominando Laravel con Laravel 5.6</h1>
-<h3><b>Commit -</b> <strong>Qué son y cómo funcionan las rutas parte 1</strong></h3>
+<h3><b>Commit -</b> <strong>Qué son y cómo funcionan las rutas parte 2</strong></h3>
 <hr>
 <ol>
   <!-- Instrucciones del commit -->
