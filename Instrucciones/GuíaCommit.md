@@ -1,13 +1,16 @@
 
 <style>body{background-color:black;} strong{color:crimson;} pre{background-color:red;}</style>
 <h1 align="center">Proyecto Curso Dominando Laravel con Laravel 5.6</h1>
-<h3><b>Commit -</b> <strong>Como mostrar HTML con las vistas parte 4</strong></h3>
+<h3><b>Commit -</b> <strong>Como mostrar HTML con las vistas parte 5</strong></h3>
 <hr>
 <ol>
   <!-- Instrucciones del commit -->
   <li>Eliminación de la vista resources/views/welcome.blade.php</li>
   <li>Creación y edición de la vista resources/views/home.blade.php</li>
   <li>Edición del directorio routes/web.php</li>
+  <li>Creación y edición de la vista resources/views/about</li>
+  <li>Creación y edición de la vista resources/views/portfolio</li>
+  <li>Creación y edición de la vista resources/views/contact</li>
 </ol>
 
 <hr>

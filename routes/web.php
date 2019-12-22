@@ -11,12 +11,21 @@
 // Ejemplo ruta '/' con Route::view()
   // Route::view( '/', 'home' ); /* Sin parámetros */
   // Route::view( '/', 'home', ['nombre'=> "Marco"] ); /* Con parámetros */
-  Route::view( '/', 'home', ['nombre'=> "Marco"] )->name( 'home' ); /* Con parámetros y con nombre a la ruta */
+  // Route::view( '/', 'home', ['nombre'=> "Marco"] )->name( 'home' ); /* Con parámetros y con nombre a la ruta */
+
+  // Ejemplo de ruta usando Route::view()
+  Route::view( '/', 'home' )->name( 'home' );
+  Route::view( '/about', 'about' )->name( 'about' );
+  Route::view( '/portfolio', 'portfolio' )->name( 'portfolio' );
+  Route::view( '/contact', 'contact' )->name( 'contact' );
+
 
 /* Notas:
   *Cuando se usa la función view(), el parámetro debe ser el nombre del archivo de la vista sin extensión.
     *Ejemplo: Si tu ruta está en resources/views/hombe.blade.php, el llamado de la vista solo debe ser: return view( 'home' );
-    *Nota:Asignar el nombre a la ruta '->name()' se usa en otras situaciones
+    *Nota:Asignar el nombre a la ruta '->name()' se usa en otras situaciones.
+    *El uso de Route::view es para retornar vistas que no necesitan mucha lógica
+        *ejemplo: Políticas de privacidad, térmicos y condiciones
 */
 
 /**
