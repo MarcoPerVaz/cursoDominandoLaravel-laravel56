@@ -8,13 +8,10 @@
    ya que la función view() asume que las vistas están en resources/views y que su extensión es blade.php
 */
 
-// Ejemplo ruta '/' y paso de variables a la vista
-Route::get( '/', function() {
-    
-  $nombre = "Marco";
-  return view( 'home', compact( 'nombre' ) );
-
-})->name( 'home' );
+// Ejemplo ruta '/' con Route::view()
+  // Route::view( '/', 'home' ); /* Sin parámetros */
+  // Route::view( '/', 'home', ['nombre'=> "Marco"] ); /* Con parámetros */
+  Route::view( '/', 'home', ['nombre'=> "Marco"] )->name( 'home' ); /* Con parámetros y con nombre a la ruta */
 
 /* Notas:
   *Cuando se usa la función view(), el parámetro debe ser el nombre del archivo de la vista sin extensión.
