@@ -11,6 +11,12 @@
 // Ejemplo ruta '/'
 Route::get( '/', function() {
     
-  return view( 'welcome' );
+  return view( 'home' );
 
 })->name( 'home' );
+
+/* Notas:
+  *Cuando se usa la función view(), el parámetro debe ser el nombre del archivo de la vista sin extensión.
+    *Ejemplo: Si tu ruta está en resources/views/hombe.blade.php, el llamado de la vista solo debe ser: return view( 'home' );
+    *Nota:Asignar el nombre a la ruta '->name()' se usa en otras situaciones
+*/
