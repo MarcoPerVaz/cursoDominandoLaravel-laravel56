@@ -1,11 +1,12 @@
 
 <style>body{background-color:black;} strong{color:crimson;} pre{background-color:red;}</style>
 <h1 align="center">Proyecto Curso Dominando Laravel con Laravel 5.6</h1>
-<h3><b>Commit -</b> <strong>Blade, el motor de plantillas parte 1</strong></h3>
+<h3><b>Commit -</b> <strong>Blade, el motor de plantillas parte 2</strong></h3>
 <hr>
 <ol>
   <!-- Instrucciones del commit -->
   <li>Edición de la vista resources/views/home.blade.php</li>
+  <li>Creación de la vista resources/views/layout.blade.php</li>
 </ol>
 
 <hr>
@@ -24,3 +25,4 @@
 </ul>
 
 <em>*Más información en el directorio resources/views/home.blade.php</em>
+<em>*Más información en el directorio resources/views/layout.blade.php</em>
