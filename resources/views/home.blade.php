@@ -21,6 +21,18 @@
       </ul>
     </nav>
     <h1>Home</h1>
+    {{-- Sin Blade --}}
     Binvenida <?php echo $nombre ?? "Invitado" ?>
+    {{-- Con Blade --}}
+    Binvenida {{ $nombre ?? "Invitado" }} {{-- Forma correcta de usar Blade --}}
+    {{-- Intentando insertar javascript con blade --}}
+    Bienvenida {{ "<script>alert('hola')</script>" }}
+    {{-- Intentando insertar javascript sin blade --}}
+    Bienvenida <?php echo "<script>alert('hola')</script>" ?>
   </body>
 </html>
+
+{{-- Notas:
+  *Blade usa la función e() de php que protege contra inserciones de javascript 
+  *Laravel junto a Blade protegen de ataques XSS(Puede buscar Internet sobre esto)
+--}}
