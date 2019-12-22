@@ -1,33 +1,19 @@
-{{-- Aquí se agrega el contenido HTML --}}
 {{-- Notas:
-        *Se utiliza php plano para este ejemplo
-        *Se recomienda que en las vistas se mantenga la lógica mínima posible, que se dediquen a imprimir 
-         variables, hacer estructuras de control (if-else), hacer loops(ciclo for, foreach, etc.).
-        *Dónde '??' significa que si la variable $nombre no tiene ningún valor se le asigne un valor por defecto
---}}
+      *Para poder usar resources/views/layout.blade.php como plantilla en todas las vistas se usa:
+        *La directiva @extends('nombreVista') de Blade
+      *Para ingresar contenido dinámico en la plantilla resources/views/layout.blade.php se usa:
+        *La directiva @section('nombre') de Blade
+          *En @section('nombre'), dónde 'nombre' será el mismo que se le dió en la directiva @yield('nombre') en
+           resources/views/layout.blade.php (En éste caso fue 'content')
+      *Para evitar que en el HTML al inspeccionar el elemento en el nevagador se detecten espacios:
+        *@section('title', 'Home')
+         *Nota: se usa una sola línea en la directiva y se quita el @endsection
+ --}}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Home</title>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-    <h1>Home</h1>
-    {{-- Con Blade --}}
-    Binvenida {{ $nombre ?? "Invitado" }} {{-- Forma correcta de usar Blade --}}
-  </body>
-</html>
+ @extends('layout')
 
-{{-- Notas:
-  *Blade usa la función e() de php que protege contra inserciones de javascript 
-  *Laravel junto a Blade protegen de ataques XSS(Puede buscar Internet sobre esto)
-  *Blade permite separar código HTML para ser usado en varias páginas sin repetir lo mismo
---}}
+ @section('title', 'Home')
+
+ @section('content')
+     <h1>Home</h1>
+ @endsection
